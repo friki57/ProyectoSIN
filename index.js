@@ -18,8 +18,8 @@ c.setMinBytes && c.setMinBytes(0);
 
 c.on('packet', function(nbytes, trunc) {
   console.log(new Date())
-  console.log('packet: length ' + nbytes + ' bytes, truncated? '
-              + (trunc ? 'yes' : 'no'));
+  console.log('packet: tamaño ' + nbytes + ' bytes, truncado? '
+              + (trunc ? 'sí' : 'no'));
 
   // raw packet data === buffer.slice(0, nbytes)
 
@@ -28,28 +28,28 @@ c.on('packet', function(nbytes, trunc) {
     var ret = decoders.Ethernet(buffer);
 
     if (ret.info.type === PROTOCOL.ETHERNET.IPV4) {
-      console.log('Decoding IPv4 ...');
+      console.log('Decodificando la IP');
 
       ret = decoders.IPV4(buffer, ret.offset);
-      console.log('from: ' + ret.info.srcaddr + ' to ' + ret.info.dstaddr);
+      console.log('de: ' + ret.info.srcaddr + ' a ' + ret.info.dstaddr);
 
       if (ret.info.protocol === PROTOCOL.IP.TCP) {
         var datalen = ret.info.totallen - ret.hdrlen;
 
-        console.log('Decoding TCP ...');
+        console.log('Decodificando TCP');
 
         ret = decoders.TCP(buffer, ret.offset);
-        console.log(' from port: ' + ret.info.srcport + ' to port: ' + ret.info.dstport);
+        console.log(' del puerto: ' + ret.info.srcport + ' a el puerto: ' + ret.info.dstport);
         datalen -= ret.hdrlen;
         console.log(buffer.toString('binary', ret.offset, ret.offset + datalen));
       } else if (ret.info.protocol === PROTOCOL.IP.UDP) {
-        console.log('Decoding UDP ...');
+        console.log('Decodificando UDP');
 
         ret = decoders.UDP(buffer, ret.offset);
-        console.log(' from port: ' + ret.info.srcport + ' to port: ' + ret.info.dstport);
+        console.log(' del puerto: ' + ret.info.srcport + ' a el puerto: ' + ret.info.dstport);
         console.log(buffer.toString('binary', ret.offset, ret.offset + ret.info.length));
       } else
-        console.log('Unsupported IPv4 protocol: ' + PROTOCOL.IP[ret.info.protocol]);
+        console.log('No soporta IPV4: ' + PROTOCOL.IP[ret.info.protocol]);
     } else
       console.log('Unsupported Ethertype: ' + PROTOCOL.ETHERNET[ret.info.type]);
   }
