@@ -23,7 +23,8 @@ c.on('packet', function(nbytes, trunc) {
 
   // raw packet data === buffer.slice(0, nbytes)
 
-  if (linkType === 'ETHERNET') {
+  //if (linkType === 'ETHERNET') 
+  {
     var ret = decoders.Ethernet(buffer);
 
     if (ret.info.type === PROTOCOL.ETHERNET.IPV4) {
