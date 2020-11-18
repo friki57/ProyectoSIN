@@ -10,9 +10,11 @@ function exportar () {
 		this.datos = []
 		this.entrenando = false;
 		this.tiempototal = 0;
+		this.tiempoentrenamiento = 0;
 		this.activarentrenamiento = (tiempo)=>
 		{
-			this.tiempototal = tiempo;
+			console.log("***** INICIANDO ENTRENAMIENTO DE ", tiempo / 60000, " MINUTOS *****")
+			this.tiempoentrenamiento = tiempo;
 			entrenando = true;
 		}
 		this.predecir = (valor)=>
