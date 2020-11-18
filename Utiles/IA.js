@@ -35,7 +35,9 @@ function exportar () {
 		        {
 		          this.entrenando = false;
 		          console.log("terminó el entrenamiento");
-		          fs.appendFile('datosdeentrenamiento.txt', this.datos.toString(), function (err) {
+		          var nombreArchivo = 'datosdeentrenamiento.txt'; 
+				  fs.unlinkSync(nombreArchivo);
+		          fs.appendFile(nombreArchivo, JSON.stringify(this.datos), function (err) {
 					  if (err) throw err;
 					  console.log('Saved!');
 					});
