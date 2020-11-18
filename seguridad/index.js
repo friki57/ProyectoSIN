@@ -135,7 +135,7 @@ function desbanear (ip) {
   shell.exec('ufw delete deny from '+ip+' to any port 4000')
 }
 
-import * as tf from "@tensorflow/tfjs";
+var tf = require("@tensorflow/tfjs");
 
 const model = tf.sequential();
 model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
