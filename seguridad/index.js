@@ -141,8 +141,8 @@ const model = tf.sequential();
 model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
 model.compile({ loss: "meanSquaredError", optimizer: "sgd" });
 
-const height = tf.tensor2d([1.82, 1.70, 1.87, 1.54, 1.63, 1.72], [6, 1]);
-const weight = tf.tensor2d([80, 75, 85, 65, 72, 75], [6, 1]);
+const height = tf.tensor2d([1.82, 1.70, 1.87, 1.54, 1.63, 1.72], [3, 1]);
+const weight = tf.tensor2d([80, 75, 85, 65, 72, 75], [5, 1]);
 
 // Entrenando el modelo
 model.fit(height, weight, { epochs: 500 }).then(() => {
