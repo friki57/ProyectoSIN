@@ -103,10 +103,25 @@ setInterval(()=>
   })
   IPs = []
 },5000);
+
+var baneados = [];
  
 const shell = require('shelljs')
 
 function banear (ip) {
+    var incluye = false;
+    baneados.map(a=>
+    {
+      if(a == ip)
+      {
+        incluye = true;
+      }
+    });
+    if(incluye==true)
+    {
+      return ;
+    }
+  baneados.push(ip);
   console.log("Baneando a ", ip)
   shell.exec('ufw insert 1 deny from '+ip+' to any port 80')
   shell.exec('ufw insert 1 deny from '+ip+' to any port 4000')
@@ -114,6 +129,7 @@ function banear (ip) {
 }
 
 function desbanear (ip) {
+  baneados = baneados.filter(a=>a!=ip);
   console.log("Desbaneando a ", ip);
   shell.exec('ufw delete deny from '+ip+' to any port 80')
   shell.exec('ufw delete deny from '+ip+' to any port 4000')
