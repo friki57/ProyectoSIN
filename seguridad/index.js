@@ -20,6 +20,7 @@ var linkType = c.open(device, filter, bufSize, buffer);
 c.setMinBytes && c.setMinBytes(0);
 
 c.on('packet', function(nbytes, trunc) {
+  console.log("--------------------------------------------------------------------------------------------------------")
   console.log("Llegó algo", fechas(new Date())) 
  // console.log('packet: tamaño ' + nbytes + ' bytes, truncado? ' + (trunc ? 'sí' : 'no'));
 
