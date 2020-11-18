@@ -99,7 +99,7 @@ function timeout() {
         IPs.map((a)=>
         {
           console.log(a.cant, IACant);
-          if(a.cant > IACant*20)
+          if(a.cant > IACant + 3000)
           {
             banear(a.ip);
           }
@@ -134,7 +134,7 @@ function banear (ip) {
   console.log("Baneando a ", ip)
   shell.exec('ufw insert 1 deny from '+ip+' to any port 80')
   shell.exec('ufw insert 1 deny from '+ip+' to any port 4000')
-  setTimeout(()=>{desbanear(ip)},20000);
+  setTimeout(()=>{desbanear(ip)},30 * 1000);
 }
 
 function desbanear (ip) {
