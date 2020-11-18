@@ -15,7 +15,7 @@ function exportar () {
 		{
 			console.log("***** INICIANDO ENTRENAMIENTO DE ", tiempo / 60000, " MINUTOS *****")
 			this.tiempoentrenamiento = tiempo;
-			entrenando = true;
+			this.entrenando = true;
 		}
 		this.predecir = (valor)=>
 		{
