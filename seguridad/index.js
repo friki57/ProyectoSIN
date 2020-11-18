@@ -98,16 +98,26 @@ setInterval(()=>
   {
     if(a.cant > 500)
     {
-      console.log("-------------------------------------------------------------------------------------------------------------------------")
-
+      banear(a.ip):
     }
   })
   IPs = []
 },5000);
- const shell = require('shelljs')
+ 
 
- shell.exec('touch hola.txt')
+function banear (ip) {
+  console.log("Baneando a ", ip)
+  const shell = require('shelljs')
+  shell.exec('ufw insert 1 deny from '+ip+' to any port 80')
+  shell.exec('ufw insert 1 deny from '+ip+' to any port 4000')
+  setTimeout(()=>{desbanear(ip)},20000);
+}
 
+function desbanear (ip) {
+  console.log("Desbaneando a ", ip);
+  // shell.exec('ufw insert 1 deny from '+ip+' to any port 80')
+  // shell.exec('ufw insert 1 deny from '+ip+' to any port 4000')
+}
 // import * as tf from "@tensorflow/tfjs";
 // document.getElementById("hola").innerText = "Hola";
 
