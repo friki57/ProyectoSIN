@@ -55,6 +55,7 @@ function exportar () {
 			    throw err;
 			  }
 			  console.log(datos)
+			  datos = JSON.parse(datos);
 			  var x = datos.map(a=>{return a.t});
 			  var y = datos.map(a=>{return a.cant});
 			  console.log(datos,x,y);
