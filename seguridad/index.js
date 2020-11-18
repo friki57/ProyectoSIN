@@ -134,23 +134,19 @@ function desbanear (ip) {
   shell.exec('ufw delete deny from '+ip+' to any port 80')
   shell.exec('ufw delete deny from '+ip+' to any port 4000')
 }
-// import * as tf from "@tensorflow/tfjs";
-// document.getElementById("hola").innerText = "Hola";
 
-// // Usamos un modelo secuencial para regresión lineal
-// const model = tf.sequential();
-// model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
+import * as tf from "@tensorflow/tfjs";
 
-// // Seleccionamos pérdida y optimizador para modelo
-// model.compile({ loss: "meanSquaredError", optimizer: "sgd" });
+const model = tf.sequential();
+model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
+model.compile({ loss: "meanSquaredError", optimizer: "sgd" });
 
-// // Altura y peso como los datos de entrenamiento
-// const height = tf.tensor2d([1.82, 1.70, 1.87, 1.54, 1.63, 1.72], [6, 1]);
-// const weight = tf.tensor2d([80, 75, 85, 65, 72, 75], [6, 1]);
+const height = tf.tensor2d([1.82, 1.70, 1.87, 1.54, 1.63, 1.72], [6, 1]);
+const weight = tf.tensor2d([80, 75, 85, 65, 72, 75], [6, 1]);
 
-// // Entrenando el modelo
-// model.fit(height, weight, { epochs: 500 }).then(() => {
-//   // Usamos modelo para predeccir peso para una altura de 183 cm
-//   model.predict(tf.tensor2d([1.80], [1, 1])).print();
-// });
+// Entrenando el modelo
+model.fit(height, weight, { epochs: 500 }).then(() => {
+  // Usamos modelo para predeccir peso para una altura de 183 cm
+  model.predict(tf.tensor2d([1.80], [1, 1])).print();
+});
 
