@@ -136,5 +136,8 @@ function desbanear (ip) {
 }
 
 var IA = require("./../Utiles/IA.js")
-console.log(IA)
-IA.predecir(1.81)
+setTimeout(()=>
+{
+  console.log(IA)
+  IA.predecir(1.81)
+}, 1000);
