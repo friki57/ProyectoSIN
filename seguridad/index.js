@@ -162,5 +162,5 @@ IA.cargarModelo();
 // var y = [80, 75, 85, 65, 72]
 setTimeout(()=>
 {
-  console.log(IA.predecir(5000)[0]);
-},1000)
+  console.log(IA.predecir(3000)[0]);
+},3000)
