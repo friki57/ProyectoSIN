@@ -61,7 +61,7 @@ function exportar () {
 				//console.log(datos,x,y);
 				const height = tf.tensor2d(x, [x.length, 1]);
 				const weight = tf.tensor2d(y, [y.length, 1]);
-				const learningRate = 0.01;
+				const learningRate = 0.0000001;
 				const optimizer = tf.train.sgd(learningRate);
 
 				model.compile({
