@@ -1,1 +1,1 @@
-echo "hola" > coso.txt
+touch coso.txt
