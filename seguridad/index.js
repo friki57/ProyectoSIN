@@ -99,7 +99,7 @@ function timeout() {
         IPs.map((a)=>
         {
           console.log(a.cant, IACant);
-          if(a.cant > 500)
+          if(a.cant > IACant*20)
           {
             banear(a.ip);
           }
@@ -112,18 +112,6 @@ function timeout() {
     }, tiempo);
 };
 timeout();
-// setInterval(()=>
-// {
-//   console.log(IPs);
-//   IPs.map((a)=>
-//   {
-//     if(a.cant > 500)
-//     {
-//       banear(a.ip);
-//     }
-//   })
-//   IPs = []
-// },5000);
 
 var baneados = [];
  
