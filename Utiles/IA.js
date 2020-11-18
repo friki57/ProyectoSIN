@@ -16,7 +16,7 @@ model.fit(height, weight, { epochs: 500 }).then(() => {
 function exportar () {
 		this.predecir = (valor)=>
 		{
-			var prediccion = model.predict(tf.tensor2d([valor], [1, 1])).print();
+			var prediccion = model.predict(tf.tensor2d([valor], [1, 1]));
 			return prediccion;
 		}
 	}
