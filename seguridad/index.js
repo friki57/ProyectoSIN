@@ -136,6 +136,10 @@ function desbanear (ip) {
 }
 
 var IA = require("./../Utiles/IA.js")
+
+  var x = [1.82, 1.70, 1.87, 1.54, 1.63]
+  var y = [80, 75, 85, 65, 72]
+  IA.entrenarModelo(x,y);
 setTimeout(()=>
 {
   console.log(IA.predecir(1.81)[0]);
