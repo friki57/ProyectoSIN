@@ -56,7 +56,7 @@ function exportar () {
 			  }
 			  //console.log(datos)
 				datos = JSON.parse(datos);
-				var x = datos.map(a=>{return a.t});
+				var x = datos.map(a=>{return a.t/1000});
 				var y = datos.map(a=>{return a.cant});
 				//console.log(datos,x,y);
 				const height = tf.tensor2d(x, [x.length, 1]);
