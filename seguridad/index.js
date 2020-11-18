@@ -101,7 +101,7 @@ function timeout() {
             banear(a.ip);
           }
         })
-        IA.entrenar(IPs.filter(a=>a.cant));
+        IA.entrenar(IPs.filter(a=>a.cant),tiempo);
         IPs = []
         tiempo = (Math.floor(Math.random() * 7000) + 3000)
         console.log("tiempo",tiempo)
