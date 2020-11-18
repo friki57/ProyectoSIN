@@ -35,7 +35,7 @@ function exportar () {
 		        {
 		          this.entrenando = false;
 		          console.log("terminó el entrenamiento");
-		          var nombreArchivo = 'datosdeentrenamiento.txt'; 
+		          var nombreArchivo = './datosdeentrenamiento.txt'; 
 				  fs.unlinkSync(nombreArchivo);
 		          fs.appendFile(nombreArchivo, JSON.stringify(this.datos), function (err) {
 					  if (err) throw err;
