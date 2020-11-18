@@ -98,7 +98,7 @@ setInterval(()=>
   {
     if(a.cant > 500)
     {
-      banear(a.ip):
+      banear(a.ip);
     }
   })
   IPs = []
