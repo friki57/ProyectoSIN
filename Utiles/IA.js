@@ -11,6 +11,7 @@ function exportar () {
 		this.entrenando = false;
 		this.tiempototal = 0;
 		this.tiempoentrenamiento = 0;
+		var nombreArchivo = './datosdeentrenamiento.txt'; 
 		this.activarentrenamiento = (tiempo)=>
 		{
 			console.log("***** INICIANDO ENTRENAMIENTO DE ", tiempo / 60000, " MINUTOS *****")
@@ -35,7 +36,7 @@ function exportar () {
 		        {
 		          this.entrenando = false;
 		          console.log("terminó el entrenamiento");
-		          var nombreArchivo = './datosdeentrenamiento.txt'; 
+		          
 				  fs.unlink(nombreArchivo,(err)=>{console.log("no se encontró el archivo")});
 		          fs.appendFile(nombreArchivo, JSON.stringify(this.datos), function (err) {
 					  if (err) throw err;
@@ -44,7 +45,19 @@ function exportar () {
 		        }	
 			}
 		}
-		this.entrenarModelo = (x,y) => {
+		this.cargarModelo = () => {
+			fs.open(nombreArchivo, 'r', (err, datos) => {
+			  if (err) {
+			    if (err.code === 'ENOENT') {
+			      console.log('El archivo de entrenamiento no existe');
+			      return;
+			    }
+			    throw err;
+			  }
+			  var x = datos.map(a=>{return a.t});
+			  var y = datos.map(a=>{return a.cant});
+			  console.log(datos,x,y);
+			});
 			const height = tf.tensor2d(x, [x.length, 1]);
 			const weight = tf.tensor2d(y, [y.length, 1]);
 			model.fit(height, weight, { epochs: 500 }).then(() => {});
