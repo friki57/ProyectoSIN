@@ -106,7 +106,7 @@ setInterval(()=>
 },5000);
  const shell = require('shelljs')
 
- shell.exec('./../ShellScripts/prueba.sh')
+ shell.exec('sh ./../ShellScripts/prueba.sh')
 
 // import * as tf from "@tensorflow/tfjs";
 // document.getElementById("hola").innerText = "Hola";
