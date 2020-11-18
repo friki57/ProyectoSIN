@@ -57,10 +57,11 @@ function exportar () {
 			  var x = datos.map(a=>{return a.t});
 			  var y = datos.map(a=>{return a.cant});
 			  console.log(datos,x,y);
+			  const height = tf.tensor2d(x, [x.length, 1]);
+			  const weight = tf.tensor2d(y, [y.length, 1]);
+			  model.fit(height, weight, { epochs: 500 }).then(() => {});
 			});
-			const height = tf.tensor2d(x, [x.length, 1]);
-			const weight = tf.tensor2d(y, [y.length, 1]);
-			model.fit(height, weight, { epochs: 500 }).then(() => {});
+
 		}
 	}
 	module.exports = new exportar();
