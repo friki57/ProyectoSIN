@@ -1,3 +1,4 @@
+var fechas = require("./../Utiles/fechas.js")
 var Cap = require('cap').Cap;
 var lista = Cap.deviceList();
 lista = JSON.stringify(lista, null, 2);
@@ -9,8 +10,8 @@ var decoders = require('cap').decoders;
 var PROTOCOL = decoders.PROTOCOL;
 
 var c = new Cap();
-var device = Cap.findDevice('10.0.0.23');
-var filter = 'tcp and dst port 80';
+var device = Cap.findDevice('104.129.131.178');
+var filter = 'port 80 or port 4000';
 var bufSize = 10 * 1024 * 1024;
 var buffer = Buffer.alloc(65535);
 
@@ -19,13 +20,12 @@ var linkType = c.open(device, filter, bufSize, buffer);
 c.setMinBytes && c.setMinBytes(0);
 
 c.on('packet', function(nbytes, trunc) {
-  console.log(new Date())
-  console.log('packet: tamaño ' + nbytes + ' bytes, truncado? '
-              + (trunc ? 'sí' : 'no'));
+  console.log("Llegó algo", fechas(new Date())) 
+ // console.log('packet: tamaño ' + nbytes + ' bytes, truncado? ' + (trunc ? 'sí' : 'no'));
 
   // raw packet data === buffer.slice(0, nbytes)
 
-  //if (linkType === 'ETHERNET') 
+  if (linkType === 'ETHERNET') 
   {
     var ret = decoders.Ethernet(buffer);
 
