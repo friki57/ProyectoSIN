@@ -95,8 +95,10 @@ var tiempo = 5000;
 function timeout() {
     setTimeout(function () {
         //console.log(IPs);
+        const IACant = IA.predecir(tiempo)[0];
         IPs.map((a)=>
         {
+          console.log(a.cant, IACant);
           if(a.cant > 500)
           {
             banear(a.ip);
