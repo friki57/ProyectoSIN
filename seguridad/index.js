@@ -90,19 +90,36 @@ function actualizarIPs (ip) {
   }
   
 }
-
-setInterval(()=>
-{
-  console.log(IPs);
-  IPs.map((a)=>
-  {
-    if(a.cant > 500)
-    {
-      banear(a.ip);
-    }
-  })
-  IPs = []
-},5000);
+var tiempo = 5000;
+function timeout() {
+    setTimeout(function () {
+        console.log(IPs);
+        IPs.map((a)=>
+        {
+          if(a.cant > 500)
+          {
+            banear(a.ip);
+          }
+        })
+        IPs = []
+        tiempo = (Math.floor(Math.random() * 7000) + 3000)
+        console.log("tiempo",tiempo)
+        timeout();
+    }, tiempo);
+};
+timeout();
+// setInterval(()=>
+// {
+//   console.log(IPs);
+//   IPs.map((a)=>
+//   {
+//     if(a.cant > 500)
+//     {
+//       banear(a.ip);
+//     }
+//   })
+//   IPs = []
+// },5000);
 
 var baneados = [];
  
