@@ -18,6 +18,6 @@ model.fit(height, weight, { epochs: 500 }).then(() => {
 			model.predict(tf.tensor2d([valor], [1, 1])).print();
 		}
 	}
-	module.exports = exportar;  
+	module.export = exportar;  
 });
 
