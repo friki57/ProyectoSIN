@@ -135,5 +135,5 @@ function desbanear (ip) {
   shell.exec('ufw delete deny from '+ip+' to any port 4000')
 }
 
-var model = require("./../Utiles/IA.js")
-model.predict(tf.tensor2d([1.80], [1, 1])).print();
+var IA = require("./../Utiles/IA.js")
+IA(1.81)
