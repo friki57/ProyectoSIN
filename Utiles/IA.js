@@ -46,7 +46,7 @@ function exportar () {
 			}
 		}
 		this.cargarModelo = () => {
-			fs.open(nombreArchivo, 'r', (err, datos) => {
+			fs.readFile(nombreArchivo, 'r', (err, datos) => {
 			  if (err) {
 			    if (err.code === 'ENOENT') {
 			      console.log('El archivo de entrenamiento no existe');
