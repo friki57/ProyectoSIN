@@ -49,7 +49,7 @@ c.on('packet', function(nbytes, trunc) {
 
         ret = decoders.UDP(buffer, ret.offset);
         console.log(' del puerto: ' + ret.info.srcport + ' a el puerto: ' + ret.info.dstport);
-        console.log(buffer.toString('binary', ret.offset, ret.offset + ret.info.length));
+       // console.log(buffer.toString('binary', ret.offset, ret.offset + ret.info.length));
       } else
         console.log('No soporta IPV4: ' + PROTOCOL.IP[ret.info.protocol]);
     } else

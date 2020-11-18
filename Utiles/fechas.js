@@ -1,6 +1,6 @@
 module.exports = (fecha) =>
 {
-  console.log("fecha",fecha);
+  //console.log("fecha",fecha);
 var nombres_dias = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
 var nombres_meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 var fecha_actual = fecha;
