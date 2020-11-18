@@ -43,7 +43,7 @@ c.on('packet', function(nbytes, trunc) {
         ret = decoders.TCP(buffer, ret.offset);
         console.log(' del puerto: ' + ret.info.srcport + ' a el puerto: ' + ret.info.dstport);
         datalen -= ret.hdrlen;
-        console.log(buffer.toString('binary', ret.offset, ret.offset + datalen));
+        //console.log(buffer.toString('binary', ret.offset, ret.offset + datalen));
       } else if (ret.info.protocol === PROTOCOL.IP.UDP) {
         console.log('Decodificando UDP');
 
