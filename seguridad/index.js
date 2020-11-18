@@ -115,8 +115,8 @@ function banear (ip) {
 
 function desbanear (ip) {
   console.log("Desbaneando a ", ip);
-  // shell.exec('ufw insert 1 deny from '+ip+' to any port 80')
-  // shell.exec('ufw insert 1 deny from '+ip+' to any port 4000')
+  shell.exec('ufw delete deny from '+ip+' to any port 80')
+  shell.exec('ufw delete deny from '+ip+' to any port 4000')
 }
 // import * as tf from "@tensorflow/tfjs";
 // document.getElementById("hola").innerText = "Hola";
