@@ -12,12 +12,12 @@ const weight = tf.tensor2d([80, 75, 85, 65, 72], [5, 1]);
 
 // Entrenando el modelo
 model.fit(height, weight, { epochs: 500 }).then(() => {
-	function exportar () {
+});
+function exportar () {
 		this.predecir = (valor)=>
 		{
 			model.predict(tf.tensor2d([valor], [1, 1])).print();
 		}
 	}
-});
-	module.exports = 5;  
+	module.exports = new exportar();  
 
