@@ -8,9 +8,9 @@ console.log("Iniciando código de monitoreo de puertos")
 
 var decoders = require('cap').decoders;
 var PROTOCOL = decoders.PROTOCOL;
-
+const TUIP = '104.129.131.178';
 var c = new Cap();
-var device = Cap.findDevice('104.129.131.178');
+var device = Cap.findDevice(TUIP);
 var filter = 'port 80 or port 4000';
 var bufSize = 10 * 1024 * 1024;
 var buffer = Buffer.alloc(65535);
@@ -68,7 +68,7 @@ c.on('packet', function(nbytes, trunc) {
 
 
 function actualizarIPs (ip) {
-  if(ip!='104.129.131.178')
+  if(ip!=TUIP)
   {
     var incluye = false;
     IPs.map(a=>
@@ -91,6 +91,7 @@ function actualizarIPs (ip) {
   
 }
 var tiempo = 5000;
+
 function timeout() {
     setTimeout(function () {
         //console.log(IPs);
@@ -154,10 +155,10 @@ function desbanear (ip) {
 }
 
 var IA = require("./../Utiles/IA.js")
-IA.entrenando = true;
-  var x = [1.82, 1.70, 1.87, 1.54, 1.63]
-  var y = [80, 75, 85, 65, 72]
-  IA.entrenarModelo(x,y);
+IA.activarentrenamiento(1000 * 60 * 1);
+var x = [1.82, 1.70, 1.87, 1.54, 1.63]
+var y = [80, 75, 85, 65, 72]
+IA.entrenarModelo(x,y);
 setTimeout(()=>
 {
   console.log(IA.predecir(1.81)[0]);
