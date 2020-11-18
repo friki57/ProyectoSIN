@@ -17,7 +17,7 @@ function exportar () {
 		{
 			datos = datos.map(a=>{return {t:tiempo, cant:a}})
 			this.datos = this.datos.concat(datos)
-			console.log(datos);
+			console.log(this.datos);
 		}
 		this.entrenarModelo = (x,y) => {
 			const height = tf.tensor2d(x, [x.length, 1]);
