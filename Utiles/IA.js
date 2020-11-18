@@ -56,9 +56,9 @@ function exportar () {
 			  }
 			  //console.log(datos)
 				datos = JSON.parse(datos);
-				var x = datos.map(a=>{return a.t/1000});
+				var x = datos.map(a=>{return a.t});
 				var y = datos.map(a=>{return a.cant});
-				//console.log(datos,x,y);
+				console.log(x,y);
 				const height = tf.tensor2d(x, [x.length, 1]);
 				const weight = tf.tensor2d(y, [y.length, 1]);
 				const learningRate = 0.0000001;
