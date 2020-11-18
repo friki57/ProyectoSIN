@@ -17,6 +17,9 @@ app.use(express.static(path.join(__dirname,"/public")));
 
 app.use(cookieParser());
 
+app.set("views", path.join(__dirname, "Vista/ejs"));
+app.set("view engine", "ejs");
+
 app.use((req, res, next) => {
   next();
 });
@@ -24,7 +27,13 @@ app.use((req, res, next) => {
 const rutas = express.Router();
 rutas.get("/",(req,res)=>
 {
-  res.send("Bienvenido")
+  //res.send("Bienvenido")
+  res.render("Inicio")
+});
+rutas.get("/refrescar",(req,res)=>
+{
+  //res.send("Bienvenido")
+  res.render("refrescar")
 });
 rutas.get('/Saludo/:nombre',(req,res)=>
 {
