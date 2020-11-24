@@ -87,24 +87,30 @@ function actualizarIPs (ip) {
       const ind = IPs.findIndex(a=>ip==a.ip);
       IPs[ind].cant = IPs[ind].cant + 1;
     }
-  }
-  
+  }  
 }
 var tiempo = 5000;
 
 function timeout() {
     setTimeout(function () {
         //console.log(IPs);
-        const IACant = IA.predecir(tiempo/1000)[0];
-        IPs.map((a)=>
+        if(IA.entrenando == true)
         {
-          console.log(a.cant, IACant);
-          if(a.cant > IACant * 20)
+          IA.entrenar(IPs.map(a=>a.cant),tiempo);
+        }
+        else
+        {
+          const IACant = IA.predecir(tiempo/1000)[0];
+          IPs.map((a)=>
           {
-            banear(a.ip);
-          }
-        })
-        IA.entrenar(IPs.map(a=>a.cant),tiempo);
+            console.log(a.cant, IACant);
+            if(a.cant > IACant * 20)
+            {
+              banear(a.ip);
+            }
+          })
+        }
+        
         IPs = []
         tiempo = (Math.floor(Math.random() * 7000) + 3000)
         console.log("tiempo",tiempo)
