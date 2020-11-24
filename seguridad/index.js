@@ -99,7 +99,7 @@ function timeout() {
         IPs.map((a)=>
         {
           console.log(a.cant, IACant);
-          if(a.cant > IACant + 2000)
+          if(a.cant > IACant * 20)
           {
             banear(a.ip);
           }
