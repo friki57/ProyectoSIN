@@ -6,6 +6,7 @@
   "scripts": {
     "test1": "echo \"Error: no test specified\" && exit 1",
     "start": "sudo node index.js",
+    "tiempo": "sudo node index.js",
     "test": "sudo nodemon index.js"
   },
   "repository": {
