@@ -4,7 +4,7 @@ console.log(process.argv);
 var tiempo = 0;
 process.argv.map(a=>
 {
-	if(Number.isInteger(a))
+	if(!Number.isNaN(a))
 	{
 		tiempo = a;
 		console.log("Llegó un tiempo de:",tiempo)
