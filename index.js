@@ -1,8 +1,8 @@
 //Importar código de la seguridad y vigilación de puertos
-//require("./seguridad/");
 console.log(process.argv);
 var tiempo = 0;
-console.log("isNaN('1b')",isNaN('1b'), "isNaN(1)", isNaN(1))
+//console.log("isNaN('1b')",isNaN('1b'), "isNaN(1)", isNaN(1))
+require("./seguridad/defender");
 process.argv.map(a=>
 {
 	if(!isNaN(a))
