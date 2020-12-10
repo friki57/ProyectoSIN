@@ -2,9 +2,10 @@
 //require("./seguridad/");
 console.log(process.argv);
 var tiempo = 0;
+console.log("isNaN('1')",isNaN('1'), "isNaN(1)", isNaN(1))
 process.argv.map(a=>
 {
-	if(Number.isNaN(a))
+	if(!isNaN(a))
 	{
 		tiempo = a;
 		console.log("Llegó un tiempo de:",tiempo)
