@@ -160,7 +160,12 @@ function banear (ip) {
       reincidentes[ind].cant = reincidentes[ind].cant + 1;
       cantidadIncidencias = reincidentes[ind].cant;
     }
-  console.log("Baneando a ", ip, "por ", (30 * 1000)*cantidadIncidencias, " segundos") 
+    var mensaje = "Baneando a "+" "+ ip+" "+ "por "+" "+ (30)*cantidadIncidencias+" "+ " segundos";
+  console.log(mensaje) 
+  fs.appendFile("Registro.txt", fechas(new Date()) + "\n" + mensaje+ "\n", function (err) {
+    if (err) throw err;
+    console.log('Registro actualizado');
+  });
   setTimeout(()=>{desbanear(ip)},(30 * 1000)*cantidadIncidencias);
 }
 var reincidentes = [];
