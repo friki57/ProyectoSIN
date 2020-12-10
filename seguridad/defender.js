@@ -163,6 +163,7 @@ function banear (ip) {
   console.log("Baneando a ", ip, "por ", (30 * 1000)*cantidadIncidencias, " segundos") 
   setTimeout(()=>{desbanear(ip)},(30 * 1000)*cantidadIncidencias);
 }
+var reincidentes = [];
 
 function desbanear (ip) {
   baneados = baneados.filter(a=>a!=ip);
@@ -170,8 +171,6 @@ function desbanear (ip) {
   shell.exec('ufw delete deny from '+ip+' to any port 80')
   shell.exec('ufw delete deny from '+ip+' to any port 4000')
 }
-
-var reincidentes = [];
 
 var IA = require("./../Utiles/IA.js")
 //IA.activarentrenamiento(1000 * 60 * 20);

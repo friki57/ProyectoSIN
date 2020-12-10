@@ -137,11 +137,33 @@ function banear (ip) {
       return ;
     }
   baneados.push(ip);
-  console.log("Baneando a ", ip)
+  
   shell.exec('ufw insert 1 deny from '+ip+' to any port 80')
   shell.exec('ufw insert 1 deny from '+ip+' to any port 4000')
-  setTimeout(()=>{desbanear(ip)},30 * 1000);
+
+    var incl = false;
+    reincidentes.map(a=>
+    {
+      if(a.ip == ip)
+      {
+        incl = true;
+      }
+    });
+    var cantidadIncidencias = 1;
+    if(incl==false)
+    {
+      reincidentes.push({ip:ip,cant:1});
+    }
+    else
+    {
+      const ind = reincidentes.findIndex(a=>ip==a.ip);
+      reincidentes[ind].cant = reincidentes[ind].cant + 1;
+      cantidadIncidencias = reincidentes[ind].cant;
+    }
+  console.log("Baneando a ", ip, "por ", (30 * 1000)*cantidadIncidencias, " segundos") 
+  setTimeout(()=>{desbanear(ip)},(30 * 1000)*cantidadIncidencias);
 }
+var reincidentes = [];
 
 function desbanear (ip) {
   baneados = baneados.filter(a=>a!=ip);
