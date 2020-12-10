@@ -2,7 +2,7 @@
 //require("./seguridad/");
 console.log(process.argv);
 var tiempo = 0;
-console.log("isNaN('1')",isNaN('1'), "isNaN(1)", isNaN(1))
+console.log("isNaN('1b')",isNaN('1b'), "isNaN(1)", isNaN(1))
 process.argv.map(a=>
 {
 	if(!isNaN(a))
