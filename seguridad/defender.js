@@ -122,7 +122,7 @@ timeout();
 var baneados = [];
  
 const shell = require('shelljs')
-
+const fs = require("fs")
 function banear (ip) {
     var incluye = false;
     baneados.map(a=>
