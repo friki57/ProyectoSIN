@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test1": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "tiempo": "node index.js",
+    "start": "node seguridad/defender.js",
+    "entrenar": "node entrenar.js",
     "test": "nodemon index.js"
   },
   "repository": {
