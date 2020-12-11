@@ -178,7 +178,19 @@ function desbanear (ip) {
 }
 
 var IA = require("./../Utiles/IA.js")
-IA.activarentrenamiento(1000 * 60 * 20);
+process.argv.map(a=>
+{
+  if(!isNaN(a))
+  {
+    tiempo = a;
+    IA.activarentrenamiento(1000 * 60 * tiempo);
+  }
+})
+if(tiempo == 0)
+{
+  console.log("No llegó nada")
+}
+
 //IA.cargarModelo();
 
 // var x = [1.82, 1.70, 1.87, 1.54, 1.63]
